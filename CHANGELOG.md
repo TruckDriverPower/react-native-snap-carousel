@@ -1,3 +1,64 @@
+## v3.3.4
+* Fix issue with possible faulty index when `loopClonesPerSide` is greater than data length
+* Guard against `setNativeProps()` being `undefined`
+* On Android, make sure that the first item has the proper active style after init
+* On iOS, remove the feature "snap as soon as the previous/next item becomes active when `lockScrollWhileSnapping` is enabled" since it messes with direct calls to `snapToItem()`
+
+## v3.3.3
+* Prevent issue on iOS when `enableSnap` is set to `false` while `lockScrollWhileSnapping` is set to `true`
+
+## v3.3.2
+* Fix issue with `lockScrollWhileSnapping` when no callback was provided
+* `Pagination` component: add props `activeOpacity` and `dotContainerStyle`
+
+## v3.3.1
+* Fix issue when initializing the carousel with empty data
+* Make tappable `PaginationDot` snaps to the right item when loop is enabled
+
+## v3.3.0
+* Bring in the most wanted 'infinite loop' feature :tada: (see [the 'Loop' section](https://github.com/archriss/react-native-snap-carousel#loop) for more info about the new props `loop` and `loopClonesPerSide`)
+* Improve Android behavior when momentum is disabled
+* Guard against potential errors when component is unmounted
+* Add prop `lockScrollWhileSnapping` to improve behavior when momentum is disabled
+
+## v3.2.3
+* Fix issue with callback not fired when doing a long swipe
+
+## v3.2.2
+* Fix RTL issues
+* Fix issue with active item when `enableMomentum` was set to `true`
+* Fix issue with overlapping items (thanks [@henninghall](https://github.com/henninghall))
+* `ParallaxImage` component: allow overriding default styles
+* `Pagination` component: adapt to RTL layouts
+
+## v3.2.1
+* Fix issue with active item when no callback has been specified (introduced in version `3.2.0`)
+
+## v3.2.0
+* Refactor callback handling. **Make sure to use the new prop `callbackOffsetMargin` if you experience missed callbacks.**
+* Make item's scale and opacity animations follow scroll value (thanks [@hammadj](https://github.com/hammadj))
+* `Pagination` component: make dots tappable with new props `tappableDots` and `carouselRef` (see the [example](https://github.com/archriss/react-native-snap-carousel/blob/master/example/src/index.js))
+* Fix issue when carousel has been unmounted but parent container requires to re-render
+* Fix state and scroll issues when the currently active item is being dynamically removed
+* Improve snap feeling when momentum is disabled (default)
+* Add prop `callbackOffsetMargin`
+* Remove props `animationFunc`, `animationOptions`, `scrollEndDragDebounceValue`, `snapOnAndroid`, and `useNativeOnScroll`
+
+## v3.1.0
+* `Pagination` component: add new props for advanced customization
+
+## v3.0.0
+### WARNING
+* **Do not use this version as some temporary code was pushed to `npm` by mistake. Make sure to use version `3.1.0` instead.**
+### Breaking changes
+* Plugin is now built on top of `FlatList`, which allows for huge performance optimizations. From now on, items must be rendered using props `data` and `renderItem`.
+### General
+* Add `ParallaxImage` component (see the specific documentation [here](https://github.com/archriss/react-native-snap-carousel/blob/master/src/parallaximage/README.md))
+* Add prop `activeSlideAlignment`
+* Fix issue with autoplay when setting `scrollEnabled` to `false`
+* Prevent going back to the first item when overscrolling the last one
+* Prevent callback from being called at the wrong time in some specific scenarios
+
 ## v2.4.0
 * Add `Pagination` component (see the specific documentation [here](https://github.com/archriss/react-native-snap-carousel/blob/master/src/pagination/README.md))
 * Allow `firstItem` to be changed dynamically
